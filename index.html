@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prof. [Tu Nombre] · [Tu Materia]</title>
+  <meta name="description" content="Página del curso de [Tu Materia]: sílabos, materiales y recursos para los alumnos.">
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --surface: #ffffff;
+      --text: #1f2328;
+      --muted: #5b6370;
+      --accent: #2f5d8a;
+      --accent-soft: #e6eef6;
+      --border: #e4e0d8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #16181c;
+        --surface: #1f2228;
+        --text: #e8e6e1;
+        --muted: #a3a9b3;
+        --accent: #7fb0e0;
+        --accent-soft: #24303d;
+        --border: #2e323a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navegación */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .wrap {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 14px; padding-bottom: 14px; gap: 12px; flex-wrap: wrap;
+    }
+    nav strong { font-size: 1.05rem; }
+    nav ul { list-style: none; display: flex; gap: 18px; flex-wrap: wrap; }
+    nav ul a {
+      text-decoration: none; color: var(--muted);
+      font-family: system-ui, sans-serif; font-size: 0.92rem;
+    }
+    nav ul a:hover { color: var(--accent); }
+
+    /* Portada */
+    header.hero { padding: 72px 0 56px; }
+    .hero .tag {
+      font-family: system-ui, sans-serif; font-size: 0.8rem;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 10px 0 16px; }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 620px; }
+
+    section { padding: 48px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 1.6rem; margin-bottom: 18px; }
+
+    /* Sobre mí */
+    .about { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: start; }
+    .avatar {
+      width: 140px; height: 140px; border-radius: 50%;
+      background: var(--accent-soft); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem; font-weight: bold;
+    }
+    .about p + p { margin-top: 12px; }
+
+    /* Cursos */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px; display: flex; flex-direction: column;
+    }
+    .card .level {
+      font-family: system-ui, sans-serif; font-size: 0.78rem; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .card h3 { margin: 6px 0 10px; font-size: 1.2rem; }
+    .card p { color: var(--muted); font-size: 0.97rem; flex: 1; }
+    .btn {
+      display: inline-block; margin-top: 16px; padding: 9px 16px;
+      background: var(--accent); color: var(--bg); border-radius: 6px;
+      text-decoration: none; font-family: system-ui, sans-serif; font-size: 0.9rem;
+      align-self: flex-start;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    /* Recursos */
+    .resources { list-style: none; }
+    .resources li {
+      display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      padding: 14px 0; border-bottom: 1px dashed var(--border);
+    }
+    .resources li span { color: var(--muted); font-size: 0.92rem; font-family: system-ui, sans-serif; }
+
+    /* Avisos */
+    .notice {
+      background: var(--accent-soft); border-left: 4px solid var(--accent);
+      padding: 16px 20px; border-radius: 6px;
+    }
+    .notice + .notice { margin-top: 12px; }
+    .notice small { display: block; color: var(--muted); font-family: system-ui, sans-serif; }
+
+    footer { padding: 40px 0; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+    @media (max-width: 600px) {
+      .about { grid-template-columns: 1fr; }
+      .avatar { width: 100px; height: 100px; font-size: 2rem; }
+      header.hero { padding: 48px 0 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <strong>Prof. [Tu Nombre]</strong>
+      <ul>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#avisos">Avisos</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="tag">[Tu Materia] · Año escolar 2026–2027</span>
+      <h1>Bienvenidos a la página de [Tu Materia]</h1>
+      <p>Aquí encontrarán los sílabos de cada curso, los materiales de clase y los avisos importantes del semestre.</p>
+    </div>
+  </header>
+
+  <section id="sobre-mi">
+    <div class="wrap about">
+      <div class="avatar">TN</div>
+      <div>
+        <h2>Sobre mí</h2>
+        <p>Soy [Tu Nombre], profesor/a de [Tu Materia] en [Nombre de la Institución]. Llevo [X] años enseñando y me interesa especialmente [un tema que te apasione].</p>
+        <p>Mi objetivo en clase es [tu enfoque: por ejemplo, que los alumnos aprendan practicando y conectando la materia con su vida diaria].</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cursos">
+    <div class="wrap">
+      <h2>Cursos y sílabos</h2>
+      <div class="cards">
+        <article class="card">
+          <span class="level">Nivel 1</span>
+          <h3>[Nombre del Curso 1]</h3>
+          <p>Introducción a los conceptos fundamentales. Horario: lunes y miércoles, 10:00–11:30.</p>
+          <a class="btn" href="silabos/curso1.pdf" target="_blank">Ver sílabo (PDF)</a>
+        </article>
+        <article class="card">
+          <span class="level">Nivel 2</span>
+          <h3>[Nombre del Curso 2]</h3>
+          <p>Profundización y proyectos prácticos. Horario: martes y jueves, 14:00–15:30.</p>
+          <a class="btn" href="silabos/curso2.pdf" target="_blank">Ver sílabo (PDF)</a>
+        </article>
+        <article class="card">
+          <span class="level">Optativo</span>
+          <h3>[Nombre del Curso 3]</h3>
+          <p>Taller complementario para quienes quieran ir más allá. Horario: viernes, 12:00–13:30.</p>
+          <a class="btn" href="silabos/curso3.pdf" target="_blank">Ver sílabo (PDF)</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="avisos">
+    <div class="wrap">
+      <h2>Avisos</h2>
+      <div class="notice">
+        <small>15 de octubre de 2026</small>
+        Primer examen parcial del Nivel 1. Temas: unidades 1 a 3.
+      </div>
+      <div class="notice">
+        <small>30 de octubre de 2026</small>
+        Fecha límite para entregar el proyecto del Nivel 2.
+      </div>
+    </div>
+  </section>
+
+  <section id="recursos">
+    <div class="wrap">
+      <h2>Recursos y enlaces</h2>
+      <ul class="resources">
+        <li><a href="https://ejemplo.com" target="_blank">[Nombre del recurso o lectura]</a><span>Lectura recomendada</span></li>
+        <li><a href="https://ejemplo.com" target="_blank">[Video o canal útil]</a><span>Video</span></li>
+        <li><a href="materiales/guia-estudio.pdf" target="_blank">Guía de estudio</a><span>PDF</span></li>
+        <li><a href="https://ejemplo.com" target="_blank">[Plataforma de tareas, p. ej. Classroom o Moodle]</a><span>Entregas</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <p>Correo: <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a></p>
+      <p>Horario de consultas: [día y hora], en [aula/oficina].</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© 2026 Prof. [Tu Nombre] · [Nombre de la Institución]</div>
+  </footer>
+
+</body>
+</html>
